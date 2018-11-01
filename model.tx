@@ -1,0 +1,20 @@
+Model :
+    accessModifier=AccessModifier? type=Type name=ID protocol=Protocol '{'
+	fields+=Field
+    '}'
+;
+
+Type : 'struct' | 'class' ;
+Protocol : 'encodable' | 'decodable' | 'codable' ;
+AccessModifier : 'private' | 'fileprivate' | 'internal' | 'open' | 'public' ;
+
+Field :
+    modifier=Modifier name=ID ':' type=FieldType optional='?'? ('=' initialValue=STRING)?
+;
+
+Modifier : 'let' | 'var' ;
+FieldType : SimpleFeedType | ArrayFieldType | MapFieldType ;
+SimpleFeedType : name=ID ;
+ArrayFieldType : '[' name=ID ']' ;
+MapFieldType : '[' key=ID ':' value=ID ']' ;
+
