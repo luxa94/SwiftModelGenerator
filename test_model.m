@@ -1,5 +1,5 @@
 struct Test codable {
-    let a: String?
-    let b: Int = '123'
-    let c: [Test2] = '[]'
+    primitive let a: String?
+    primitive let b: Int = '123'
+    class let c: [Test2] = '[]'
 }

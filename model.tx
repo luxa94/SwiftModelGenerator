@@ -9,12 +9,11 @@ Protocol : 'encodable' | 'decodable' | 'codable' ;
 AccessModifier : 'private' | 'fileprivate' | 'internal' | 'open' | 'public' ;
 
 Field :
-    modifier=Modifier name=ID ':' type=FieldType optional='?'? ('=' initialValue=STRING)?
+    deserializationType=DeserializationType modifier=Modifier name=ID ':' type=FieldType optional='?'? ('=' initialValue=STRING)?
 ;
 
+DeserializationType : 'primitive' | 'class' | 'enum' ;
 Modifier : 'let' | 'var' ;
-FieldType : SimpleFeedType | ArrayFieldType | MapFieldType ;
+FieldType : SimpleFeedType | ArrayFieldType ;
 SimpleFeedType : name=ID ;
 ArrayFieldType : '[' name=ID ']' ;
-MapFieldType : '[' key=ID ':' value=ID ']' ;
-
