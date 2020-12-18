@@ -1,5 +1,5 @@
 Model :
-    accessModifier=AccessModifier? type=Type name=ID protocol=Protocol '{'
+    access_modifier=AccessModifier? type=Type name=ID protocol=Protocol '{'
 	fields+=Field
     '}'
 ;
@@ -9,11 +9,11 @@ Protocol : 'encodable' | 'decodable' | 'codable' ;
 AccessModifier : 'private' | 'fileprivate' | 'internal' | 'open' | 'public' ;
 
 Field :
-    deserializationType=DeserializationType modifier=Modifier name=ID ':' type=FieldType optional='?'? ('=' initialValue=STRING)?
+    deserialization_type=DeserializationType modifier=Modifier name=ID ':' type=FieldType optional='?'? ('=' initial_value=STRING)?
 ;
 
 DeserializationType : 'primitive' | 'class' | 'enum' ;
 Modifier : 'let' | 'var' ;
-FieldType : SimpleFeedType | ArrayFieldType ;
-SimpleFeedType : name=ID ;
+FieldType : SimpleFieldType | ArrayFieldType ;
+SimpleFieldType : name=ID ;
 ArrayFieldType : '[' name=ID ']' ;
